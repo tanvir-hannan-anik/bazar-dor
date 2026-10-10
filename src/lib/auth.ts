@@ -4,8 +4,17 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
 const client = new MongoClient(process.env.MONGODB_URL as string);
 const db = client.db("bazar-dor");
+const trustedOrigins = Array.from(
+  new Set(
+    [process.env.BETTER_AUTH_URL, process.env.BASE_URL].filter(
+      (origin): origin is string => Boolean(origin),
+    ),
+  ),
+);
 
 export const auth = betterAuth({
+  baseURL: process.env.BETTER_AUTH_URL || process.env.BASE_URL,
+  trustedOrigins,
   emailAndPassword: {
     enabled: true,
   },socialProviders: {
