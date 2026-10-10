@@ -1,6 +1,18 @@
 import React from 'react';
-
-const ProductPriceCard = ({ p }) => {
+interface ProductCard{
+    id:number
+    change:{
+        dir: string
+        pct: number
+    }
+    image: string
+    categoryIcon: string
+    nameBn: string
+    today:number
+    yesterday:number
+    unit: string
+}
+const ProductPriceCard = ({ p }:{p:ProductCard}) => {
   const difference = p.today - p.yesterday;
   const isUp = difference > 0;
   const isDown = difference < 0;

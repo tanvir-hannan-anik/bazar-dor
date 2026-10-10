@@ -1,9 +1,21 @@
 import React from 'react';
 import ProductPriceCard from './ProductPriceCard';
-
+interface Product {
+    id: number
+    change: {
+        dir: string
+        pct: number
+    }
+    image: string
+    categoryIcon: string
+    nameBn: string
+    today: number
+    yesterday: number
+    unit: string
+}
 const ProductList = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products');
-    const data = await res.json();
+    const data: Product[] = await res.json();
     return (
         <div>
             <div>

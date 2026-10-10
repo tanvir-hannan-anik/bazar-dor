@@ -1,6 +1,21 @@
 import React from 'react';
 import MarqueeText from 'react-marquee-text';
 
+interface MarqueeCategory{
+    id:number
+    change:{
+        dir: string
+        pct: number
+    }
+    image: string
+    categoryIcon: string
+    nameBn: string
+    today:number
+    unit: string
+
+
+}
+
 const MarqueeCategoryPage = async () => {
   const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products');
 
@@ -8,7 +23,7 @@ const MarqueeCategoryPage = async () => {
     throw new Error('Failed to fetch product prices');
   }
 
-  const data = await res.json();
+  const data:MarqueeCategory[] = await res.json();
 
   return (
     <div className="container mx-auto overflow-hidden border-y border-green-100 bg-white shadow-sm">
