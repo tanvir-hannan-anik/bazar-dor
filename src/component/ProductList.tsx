@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductPriceCard from './ProductPriceCard';
+import Link from "next/link";
 interface Product {
     id: number
     change: {
@@ -23,32 +24,39 @@ const ProductList = async () => {
                     <span className="text-red-500 pr-1">▲</span>
                     <h1 className="font-bold"> আজ দাম বেড়েছে</h1>
                 </div>
-
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                     {
-                        data.filter(p => p.change?.dir === "up").sort((a, b) => b.change.pct - a.change.pct).slice(0, 6).map(p => <ProductPriceCard key={p.id} p={p}></ProductPriceCard>)
+                        data.filter(p => p.change?.dir === "up").sort((a, b) => b.change.pct - a.change.pct).slice(0, 6).map(p => <Link href={`/product/${p.id}`} key={p.id}>
+                            <ProductPriceCard p={p}></ProductPriceCard>
+                        </Link>)
                     }
                 </div>
+
             </div>
             <div>
                 <div className="flex items-center my-5 p-5">
                     <span className="text-green-500 pr-1">▼ </span>
                     <h1 className="font-bold"> আজ দাম কমেছে</h1>
                 </div>
-
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                     {
-                        data.filter(p => p.change?.dir === "down").sort((a, b) => a.change.pct - b.change.pct).slice(0, 6).map(p => <ProductPriceCard key={p.id} p={p}></ProductPriceCard>)
+                        data.filter(p => p.change?.dir === "down").sort((a, b) => a.change.pct - b.change.pct).slice(0, 6).map(p => <Link href={`/product/${p.id}`} key={p.id}>
+                            <ProductPriceCard p={p}></ProductPriceCard>
+                        </Link>)
                     }
                 </div>
             </div>
             <div>
                 <h1 className="my-5 p-5 font-bold">সব পণ্য</h1>
+
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-                    {
-                        data.map(p => <ProductPriceCard key={p.id} p={p}></ProductPriceCard>)
-                    }
+                    {data.map((p) => (
+                        <Link href={`/product/${p.id}`} key={p.id}>
+                            <ProductPriceCard p={p} />
+                        </Link>
+                    ))}
                 </div>
+
             </div>
         </div>
     );

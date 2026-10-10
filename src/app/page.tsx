@@ -1,6 +1,5 @@
 import HeroSectionPage from "@/component/HeroSection";
 import ProductList from "@/component/ProductList";
-import ProductPriceCard from "@/component/ProductPriceCard";
 import { Suspense } from "react";
 
 export default function Home() {

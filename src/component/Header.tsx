@@ -19,7 +19,7 @@ const HeaderPage = () => {
                             width={45}
                             height={45}
                             priority
-                            className="h-[45px] w-[45px] rounded-xl bg-green-800 p-2.5 object-contain"
+                            className="h-11.25 w-11.25 rounded-xl bg-green-800 p-2.5 object-contain"
                         />
                     </Link>
 
