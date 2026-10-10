@@ -29,7 +29,7 @@ const HeroSectionPage = () => {
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
-            href="#products"
+            href="#সব-পণ্য"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-700/20 transition duration-300 hover:-translate-y-0.5 hover:bg-green-800"
           >
             সব পণ্য দেখুন

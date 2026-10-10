@@ -47,7 +47,7 @@ const ProductList = async () => {
                 </div>
             </div>
             <div>
-                <h1 className="my-5 p-5 font-bold">সব পণ্য</h1>
+                <h1 className="my-5 p-5 font-bold" id='সব-পণ্য'>সব পণ্য</h1>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                     {data.map((p) => (

@@ -1,7 +1,9 @@
 
 import CategoryDetailsContent from "@/component/CategoryDetailsContent";
 
-const CategoryDetailsPage = async ({ params }) => {
+const CategoryDetailsPage = async ({ params }: {
+  params: Promise<{ categoryId: string }>;
+}) => {
     const { categoryId } = await params;
 
     const res = await fetch(
